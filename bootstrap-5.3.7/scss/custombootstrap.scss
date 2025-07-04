@@ -1,0 +1,35 @@
+@import './functions';
+@import './variables';
+@import './maps';
+@import './utilities';
+
+$new-width: (
+    15: 15%,
+    16:16%,
+    24:24%,
+    49:49%,
+);
+
+$utilities: map-merge(
+    $utilities,
+    (
+        "width": map-merge(
+            map-get($utilities, "width"),
+            (values: map-merge(
+                map-get(map-get($utilities, "width"), "values"),
+                $new-width
+            ))
+        )
+    )
+    );
+
+.tileAnimation{
+    cursor: pointer;  
+}
+
+.tileAnimation:hover{
+ transform: scale(1.1)
+ 
+}
+
+@import './bootstrap.scss'
